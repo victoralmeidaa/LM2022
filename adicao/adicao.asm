@@ -53,7 +53,6 @@ _asm_main:
 	
     call print_nl			; nova linha
 
-; Não modifique o código apos este comentario
 	popa
 	mov	eax, 0
 	leave

@@ -10,7 +10,7 @@ de valores inteiros
  Estrelas e o codigo a ser executado
  O menos embaixo e o comentario
 
- * nasm -f win32 Adicao.asm				
+ * nasm -f win32 adicao.asm				
  - arquivo: Adicao.obj e criado			
 
  * nasm -f win32 asm_io.asm              
@@ -19,10 +19,10 @@ de valores inteiros
  * gcc -c -o driver.obj driver.c							
  - driver.c e compilado e arquivo driver.obj e criado		
 
- * gcc -o Adicao driver.obj Adicao.obj asm_io.obj			
+ * gcc -o adicao driver.obj adicao.obj asm_io.obj			
  - os arquivos objeto sao ligados / 						
  - linkados e o executuvel Adicao.exe e criado
 
- * ./Adicao.exe
+ * ./adicao.exe
  - arquivo .exe gerado é executado 
  -----------------------------
