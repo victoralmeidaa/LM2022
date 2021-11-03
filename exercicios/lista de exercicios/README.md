@@ -10,4 +10,7 @@ para calcular a conta é:
 O programa deverá ler a conta do cliente, consumo de água por metros cúbicos e o tipo
 de consumidor ( residencial, comercial e industrial ). Como resultado, imprima a conta
 do cliente e o valor real a ser pago pelo mesmo.
+##
+- 2 - Dados quatro números distintos inteiro positivo, desenvolver um algoritmo que
+determine e imprima a soma dos três menores.
 
