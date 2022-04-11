@@ -1,0 +1,7 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=00000000
+eax=00000000 ebx=0062CC7C ecx=0062CD64 edx=612D92FE esi=0000002F edi=00401193
+ebp=00000000 esp=0062CD6C program=C:\cygwin\home\a2083884\2022\Lista2022.1\05\main.exe, pid 2142, thread main
+cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
+Stack trace:
+Frame     Function  Args
+End of stack trace
