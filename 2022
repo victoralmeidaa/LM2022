@@ -1,0 +1,66 @@
+%include "asm_io.inc"
+segment .data
+
+;   nasm -f win32 main.asm
+;   nasm -f win32 asm_io.asm
+;   gcc -c -o driver.obj driver.c
+;   gcc -o main driver.obj main.obj asm_io.obj
+; 01 - Faça um programa para ler as dimensões de um terreno (comprimento c e largura l),
+; bem como o preço do metro de tela p. Imprima o custo para cercar este mesmo terreno
+; com tela
+
+entrada1 db "Informe Comprimento: ", 0 ;
+entrada2 db "Informe Largura: ", 0 ;
+entrada3 db "Informe Preço do metro: ", 0 ;
+saida1   db "Terreno tem ", 0 ;
+saida2   db "metros quadrados", 0 ;
+
+
+segment .bss
+input1	resd 1
+input2	resd 2
+input3  resd 3
+
+segment .text
+	global _asm_main	
+_asm_main:
+	enter 	0,0
+	pusha
+
+    ; === Comprimento ===
+    mov eax, entrada1
+    call print_string
+
+    call read_int
+    mov [input1], eax
+
+    ; === Largura ===
+    mov eax, entrada2
+    call print_string
+
+    call read_int
+    mov [input2], eax
+
+    ; === Preço ===
+    mov eax, entrada3
+    call print_string
+
+    call read_int
+    mov [input3], eax
+
+    mov eax, [input1]
+    mov ebx, [input2]
+    mul ebx
+    mov eax, ebx
+
+    mov eax, saida1
+    call print_string
+    mov eax, ebx
+    call print_int 
+    mov eax, saida2
+    call print_string
+
+    popa
+	mov	eax, 0		; return back to C
+	leave
+	ret
