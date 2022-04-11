@@ -1,7 +1,0 @@
-Exception: STATUS_ACCESS_VIOLATION at eip=00401333
-eax=00000000 ebx=0062CC8C ecx=6130CE3F edx=6130CE36 esi=0000002F edi=00401183
-ebp=00000000 esp=0062CC6C program=C:\cygwin\home\victo\lista de exercicios\01asm.exe, pid 161, thread main
-cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
-Stack trace:
-Frame     Function  Args
-End of stack trace
