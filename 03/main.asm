@@ -17,7 +17,7 @@ segment .data                                   ;vareaveis iniciadas
     entrada1 db "Informe Nota 1: ", 0 ;
     entrada2 db "Informe Nota 2: ", 0 ;
     entrada3 db "Informe Nota 3: ", 0 ;
-    saida1   db "Nome: ", 0;
+    saida1   db "RA: ", 0;
     saida2   db "Nota: ", 0;
     saida3   db "Media: ", 0;
     saida4   db "Aprovado", 0;
@@ -29,7 +29,7 @@ segment .bss                                    ;vareaveis não iniciadas
     nota2   resd 1
     nota3   resd 1
     media   resd 1
-    nome    resd 1
+    RA      resd 1
     maior   resd 1
 
 segment .text                                   ;
@@ -38,26 +38,31 @@ _asm_main:
 	enter 	0,0
 	pusha
 
-    mov eax, entrada0
-    call print_string
-    call read_int
-    mov [nome], eax
+    ;RA
+    mov eax, entrada0                           ; move entrada0 para eax
+    call print_string                           ; imprime eax na tela
+    call read_int                               ; Ler um inteiro e amrazenar em eax
+    mov [RA], eax                               ; move valor inteiro de eax para [RA]
 
-    mov eax, entrada1
+    ; Nota 1
+    mov eax, entrada1                           ;
     call print_string
     call read_int
     mov [nota1], eax
 
+    ; Nota 2
     mov eax, entrada2
     call print_string
     call read_int
     mov [nota2], eax
     
+    ; Nota 3
     mov eax, entrada3
     call print_string
     call read_int
     mov [nota3], eax
 
+    
     mov eax, 0
     cmp [nota1], eax
     jg  maior1
