@@ -67,30 +67,29 @@ _asm_main:
     cmp [nota1], eax                            ; compara eax com nota1
     jg  maior1                                  ; se nota1 for maior que eax, jump para maior1
 
-    mov eax, [maior]
-    cmp [nota2], eax
-    jg  maior2
-
-    mov eax, [maior]
-    cmp [nota3], eax
-    jg  maior3
-
-    mov eax, [maior]
-    call print_int
-
+    
 maior1:
     mov eax, [nota1]                            ; move nota1 para eax
     mov [maior], eax                            ; move eax para maior
+
+    mov eax, [maior]
+    cmp [nota2], eax
+    jg  maior2
 
 maior2:
     mov eax, [nota2]                            ; move nota2 para eax
     mov [maior], eax                            ; move eax para maior
 
+    mov eax, [maior]
+    cmp [nota3], eax
+    jg  maior3
+
 maior3:
     mov eax, [nota3]                            ; move nota3 para eax
     mov [maior], eax                            ; move eax para maior
+    jmp Fim
 
-
+Fim:
     mov eax, [maior]
     call print_int
     call print_nl
