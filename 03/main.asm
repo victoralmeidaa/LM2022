@@ -38,7 +38,7 @@ _asm_main:
 	enter 	0,0
 	pusha
 
-    ;RA
+    ; RA
     mov eax, entrada0                           ; move entrada0 para eax
     call print_string                           ; imprime eax na tela
     call read_int                               ; Ler um inteiro e amrazenar em eax
@@ -63,9 +63,9 @@ _asm_main:
     mov [nota3], eax
 
     
-    mov eax, 0
-    cmp [nota1], eax
-    jg  maior1
+    mov eax, 0                                  ; move 0 para eax
+    cmp [nota1], eax                            ; compara eax com nota1
+    jg  maior1                                  ; se nota1 for maior que eax, jump para maior1
 
     mov eax, [maior]
     cmp [nota2], eax
@@ -79,19 +79,21 @@ _asm_main:
     call print_int
 
 maior1:
-    mov eax, [nota1]
-    mov [maior], eax
+    mov eax, [nota1]                            ; move nota1 para eax
+    mov [maior], eax                            ; move eax para maior
 
 maior2:
-    mov eax, [nota2]
-    mov [maior], eax
+    mov eax, [nota2]                            ; move nota2 para eax
+    mov [maior], eax                            ; move eax para maior
 
 maior3:
-    mov eax, [nota3]
-    mov [maior], eax
+    mov eax, [nota3]                            ; move nota3 para eax
+    mov [maior], eax                            ; move eax para maior
+
 
     mov eax, [maior]
     call print_int
+    call print_nl
 
     popa
 	mov	eax, 0		; return back to C
