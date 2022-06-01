@@ -78,6 +78,7 @@ _asm_main:
     cmp [nota2], eax                            ;compara nota1 com nota2
     jg  maior1                                  ;se nota2 > nota1 pula para maior1
 
+<<<<<<< HEAD
     mov eax, [nota1]                            
     cmp [nota3], eax
     jg  maior2                                  ;se nota3 > nota1 pula para maior2
@@ -146,9 +147,31 @@ maior2:
     mul ebx
     mov [notap3], eax
 
-    mov eax, [nota3]                            ; move nota3 para eax
+=======
+    
+maior1:
+    mov eax, [nota1]                            ; move nota1 para eax
     mov [maior], eax                            ; move eax para maior
 
+    mov eax, [maior]
+    cmp [nota2], eax
+    jg  maior2
+
+maior2:
+    mov eax, [nota2]                            ; move nota2 para eax
+    mov [maior], eax                            ; move eax para maior
+
+    mov eax, [maior]
+    cmp [nota3], eax
+    jg  maior3
+
+maior3:
+>>>>>>> 4cb5fb8fdd5fef3a56e6dec316656c25d85f0d3c
+    mov eax, [nota3]                            ; move nota3 para eax
+    mov [maior], eax                            ; move eax para maior
+    jmp Fim
+
+<<<<<<< HEAD
     jmp continuar
     
 continuar: 
@@ -158,6 +181,10 @@ continuar:
     mov [somap], eax
 
     mov eax, [somap]
+=======
+Fim:
+    mov eax, [maior]
+>>>>>>> 4cb5fb8fdd5fef3a56e6dec316656c25d85f0d3c
     call print_int
     call print_nl
     mov eax, [soma]
