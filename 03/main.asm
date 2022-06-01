@@ -28,9 +28,15 @@ segment .bss                                    ;vareaveis não iniciadas
     nota1   resd 1
     nota2   resd 1
     nota3   resd 1
+    notap1  resd 1
+    notap2  resd 1
+    notap3  resd 1
     media   resd 1
     RA      resd 1
     maior   resd 1
+    soma    resd 1
+    somap   resd 1
+
 
 segment .text                                   ;
     global _asm_main	
@@ -62,38 +68,183 @@ _asm_main:
     call read_int
     mov [nota3], eax
 
+    ; soma notas
+    mov eax, [nota1]
+    add eax, [nota2]
+    add eax, [nota3]
+    mov [soma], eax
     
-    mov eax, 0                                  ; move 0 para eax
-    cmp [nota1], eax                            ; compara eax com nota1
-    jg  maior1                                  ; se nota1 for maior que eax, jump para maior1
+    mov eax, [nota1]
+    cmp [nota2], eax                            ;compara nota1 com nota2
+    jg  maior1                                  ;se nota2 > nota1 pula para maior1
 
-    mov eax, [maior]
-    cmp [nota2], eax
-    jg  maior2
-
-    mov eax, [maior]
+    mov eax, [nota1]                            
     cmp [nota3], eax
-    jg  maior3
+    jg  maior2                                  ;se nota3 > nota1 pula para maior2
+
+    mov eax,[nota1]
+    mov [maior], eax
+
+    mov eax,[nota2]
+    mov ebx, 3
+    mul ebx
+    mov [notap2], eax
+
+    mov eax,[nota3]
+    mov ebx, 3
+    mul ebx
+    mov [notap3], eax
+
+    mov eax,[nota1]
+    mov ebx, 4
+    mul ebx
+    mov [notap1], eax
 
     mov eax, [maior]
     call print_int
 
-maior1:
-    mov eax, [nota1]                            ; move nota1 para eax
-    mov [maior], eax                            ; move eax para maior
+    jmp continuar
 
-maior2:
+maior1:
+    mov eax,[nota1]
+    mov ebx, 3
+    mul ebx
+    mov [notap1], eax
+
+    mov eax, [nota2]                            
+    cmp [nota3], eax
+    jg  maior2                                  ;se nota3 > nota2 pula para maior2
+
     mov eax, [nota2]                            ; move nota2 para eax
     mov [maior], eax                            ; move eax para maior
 
-maior3:
+    mov eax,[nota3]
+    mov ebx, 3
+    mul ebx
+    mov [notap3], eax
+
+    mov eax,[nota2]
+    mov ebx, 4
+    mul ebx
+    mov [notap2], eax
+
+    jmp continuar
+
+maior2:
+    mov eax,[nota1]
+    mov ebx, 3
+    mul ebx
+    mov [notap1], eax
+
+    mov eax,[nota2]
+    mov ebx, 3
+    mul ebx
+    mov [notap2], eax
+
+    mov eax,[nota3]
+    mov ebx, 4
+    mul ebx
+    mov [notap3], eax
+
     mov eax, [nota3]                            ; move nota3 para eax
     mov [maior], eax                            ; move eax para maior
 
+    jmp continuar
+    
+continuar: 
+    mov eax, [notap1]
+    add eax, [notap2]
+    add eax, [notap3]
+    mov [somap], eax
 
-    mov eax, [maior]
+    mov eax, [somap]
     call print_int
     call print_nl
+    mov eax, [soma]
+    call print_int
+    call print_nl
+
+    mov eax, somap
+    mov ebx, soma
+    idiv ebx
+    mov [media], eax
+    call print_int
+    call print_nl
+
+    mov eax, 5
+    cmp [media], eax
+    jge Aprovado
+
+    call print_nl
+
+    mov eax, saida1
+    call print_string
+    mov eax, [RA]
+    call print_int
+    call print_nl
+
+    mov eax, saida2
+    call print_string
+    mov eax, [nota1]
+    call print_int
+    call print_nl
+
+    mov eax, saida2
+    call print_string
+    mov eax, [nota2]
+    call print_int
+    call print_nl
+
+    mov eax, saida2
+    call print_string
+    mov eax, [nota3]
+    call print_int
+    call print_nl
+
+    mov eax, saida3
+    call print_string
+    mov eax, [media]
+    call print_int
+    call print_nl
+
+    mov eax, saida5
+    call print_string
+
+    jmp Fim
+
+Aprovado:
+    mov eax, saida1
+    call print_int
+    call print_nl
+
+    mov eax, saida2
+    call print_string
+    mov eax, [nota1]
+    call print_int
+    call print_nl
+
+    mov eax, saida2
+    call print_string
+    mov eax, [nota2]
+    call print_int
+    call print_nl
+
+    mov eax, saida2
+    call print_string
+    mov eax, [nota3]
+    call print_int
+    call print_nl
+
+    mov eax, saida3
+    call print_string
+    mov eax, [media]
+    call print_int
+    call print_nl
+
+    mov eax, saida4
+    call print_string
+
+Fim:
 
     popa
 	mov	eax, 0		; return back to C
