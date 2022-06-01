@@ -165,7 +165,7 @@ continuar:
 
     mov eax, somap
     mov ebx, soma
-    idiv ebx
+    idiv ebx                                    ; CONSERTA ESSA DIVISAO
     mov [media], eax
     call print_int
     call print_nl
