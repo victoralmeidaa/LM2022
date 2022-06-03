@@ -22,6 +22,7 @@ segment .data                                   ;vareaveis iniciadas
     saida3   db "Media: ", 0;
     saida4   db "Aprovado", 0;
     saida5   db "Reprovado", 0;
+    saida6   db "Maior nota: ", 0;
 
 
 segment .bss                                    ;vareaveis não iniciadas
@@ -68,9 +69,9 @@ _asm_main:
     mov [nota3], eax
 
     ; soma notas
-    mov eax, [nota1]
-    add eax, [nota2]
-    add eax, [nota3]
+    mov eax, 3
+    add eax, 3
+    add eax, 4
     mov [soma], eax
     
     mov eax, [nota1]
@@ -98,9 +99,6 @@ _asm_main:
     mov ebx, 4
     mul ebx
     mov [notap1], eax
-
-    mov eax, [maior]
-    call print_int
 
     jmp continuar
 
@@ -157,90 +155,99 @@ continuar:
     mov [somap], eax
 
     mov eax, [somap]
-    call print_int
-    call print_nl
-    mov eax, [soma]
-    call print_int
-    call print_nl
-
-    mov eax, somap
-    mov ebx, soma
-    idiv ebx                                    ; CONSERTA ESSA DIVISAO
+    mov ebx, [soma]
+    idiv ebx                                    ; Medio calc
     mov [media], eax
-    call print_int
-    call print_nl
 
     mov eax, 5
     cmp [media], eax
     jge Aprovado
 
     call print_nl
+    call print_nl
 
-    mov eax, saida1
+    mov eax, saida1                             ;RA
     call print_string
     mov eax, [RA]
     call print_int
     call print_nl
 
-    mov eax, saida2
+    mov eax, saida2                             ;nota1
     call print_string
     mov eax, [nota1]
     call print_int
     call print_nl
 
-    mov eax, saida2
+    mov eax, saida2                             ;nota2
     call print_string
     mov eax, [nota2]
     call print_int
     call print_nl
 
-    mov eax, saida2
+    mov eax, saida2                             ;nota3
     call print_string
     mov eax, [nota3]
     call print_int
     call print_nl
 
-    mov eax, saida3
+    mov eax, saida3                             ;media
     call print_string
     mov eax, [media]
     call print_int
     call print_nl
 
-    mov eax, saida5
+    mov eax, saida6                             ;maior nota
+    call print_string
+    mov eax, [maior]                           
+    call print_int
+    call print_nl
+
+    mov eax, saida5                             ;Reprovado
     call print_string
 
     jmp Fim
 
 Aprovado:
-    mov eax, saida1
+    call print_nl
+    call print_nl
+
+    mov eax, saida1                             ;RA
+    call print_string
+    mov eax, [RA]
     call print_int
     call print_nl
 
-    mov eax, saida2
+    mov eax, saida2                             ;nota 1
     call print_string
     mov eax, [nota1]
     call print_int
     call print_nl
 
-    mov eax, saida2
+    mov eax, saida2                             ;nota 2
     call print_string
     mov eax, [nota2]
     call print_int
     call print_nl
 
-    mov eax, saida2
+    mov eax, saida2                             ;nota 3
     call print_string
     mov eax, [nota3]
     call print_int
     call print_nl
 
-    mov eax, saida3
+    mov eax, saida3                             ;media
     call print_string
     mov eax, [media]
     call print_int
     call print_nl
 
-    mov eax, saida4
+    mov eax, saida6                             ;maior nota
+    call print_string
+    mov eax, [maior]                           
+    call print_int
+    call print_nl
+
+    mov eax, saida4                             ;Aprovado
     call print_string
 
     jmp Fim
