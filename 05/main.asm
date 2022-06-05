@@ -1,5 +1,12 @@
 %include "asm_io.inc"
 
+;
+;
+;
+;
+
+;
+
 segment .data  
     entrada1 db "informe seu consumo em metro(s) cubico(s): ", 0
     entrada2 db "Informe tipo de consumidor", 0
