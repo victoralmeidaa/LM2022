@@ -8,11 +8,11 @@
 ;6. Leia um número inteiro de 4 dígitos (de 1000 a 9999) e imprimir 1 dígito por linha.
 
 segment .data
-    entrada0    db "Informe um Número inteiro de 4 dígitos: " ,0
-    saida1      db "Linha 1: " ,0
-    saida2      db "Linha 2: " ,0
-    saida3      db "Linha 3: " ,0
-    saida4      db "Linha 4: " ,0
+    entrada0    db "Informe um Numero inteiro de 4 digitos: ", 0;
+    saida1      db "Linha 1: ", 0;
+    saida2      db "Linha 2: ", 0;
+    saida3      db "Linha 3: ", 0;
+    saida4      db "Linha 4: ", 0;
 
 segment .bss
     input0  resd 1
@@ -35,15 +35,18 @@ _asm_main:
     call print_string
     mov eax, [input0]               ;Num para eax
     mov ebx, 1000   
-    div ebx                        ;Num / 1000
+    idiv ebx
+    and ebx, eax
     call print_int                  
     call print_nl
+
 
     mov eax, saida2                 ;Saida Linha 2
     call print_string
     mov eax, edx                    ;edx resto de Num / 1000
     mov ebx, 100    
     div ebx                         ;Resto / 100
+    ;xor ebx, ebx
     call print_int
     call print_nl
 
@@ -51,7 +54,8 @@ _asm_main:
     call print_string
     mov eax, edx                    ;
     mov ebx, 10
-    div ebx                         ;Resto / 10
+    and ebx, eax
+    ;idiv ebx                         ;Resto / 10
     call print_int
     call print_nl
 
@@ -59,12 +63,12 @@ _asm_main:
     call print_string
     mov eax, edx                    ;
     mov ebx, 1
-    div ebx                         ;Resto / 1
+    ;idiv ebx                         ;Resto / 1
     call print_int
     jmp Fim
     
 Fim:
     popa
-    mov eax, 0
-    leave
-    ret
+        mov eax, 0
+        leave
+        ret
