@@ -24,42 +24,42 @@ _asm_main:
     enter 0,0 
     pusha
 
-    mov eax, entrada0
+    mov eax, entrada0               ;Informe
     call print_string
     
-    call read_int
+    call read_int                   ;Ler Num
     mov [input0], eax
     call print_nl
 
-    mov eax, saida1
-    call print_int
-    mov eax, [input0]
-    mov ebx, 1000
-    idiv ebx
+    mov eax, saida1                 ;Saida Linha 1
+    call print_string
+    mov eax, [input0]               ;Num para eax
+    mov ebx, 1000   
+    div ebx                        ;Num / 1000
+    call print_int                  
+    call print_nl
+
+    mov eax, saida2                 ;Saida Linha 2
+    call print_string
+    mov eax, edx                    ;edx resto de Num / 1000
+    mov ebx, 100    
+    div ebx                         ;Resto / 100
     call print_int
     call print_nl
 
-    mov eax, saida2
+    mov eax, saida3                 ;Saida Linha 3
     call print_string
-    mov eax, edx
-    mov ebx, 100
-    div eax
-    call print_int
-    call print_nl
-
-    mov eax, saida3
-    call print_string
-    mov eax, edx
+    mov eax, edx                    ;
     mov ebx, 10
-    div eax
+    div ebx                         ;Resto / 10
     call print_int
     call print_nl
 
-    mov eax, saida4
+    mov eax, saida4                 ;Saida Linha 4
     call print_string
-    mov eax, edx
+    mov eax, edx                    ;
     mov ebx, 1
-    div ebx
+    div ebx                         ;Resto / 1
     call print_int
     jmp Fim
     
