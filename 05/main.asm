@@ -1,11 +1,20 @@
 %include "asm_io.inc"
 
-;
-;
-;
-;
+;   masn -f win32 main.asm
+;   nasm -f win32 asm_io.asm
+;   gcc -c -o driver.obj driver.C
+;   gcc -o main driver.obj main.obj asm_io.obj
 
-;
+;5. Desenvolver um algoritmo para calcular a conta de água para a CASAGO. O custo da
+;água varia dependendo se o consumidor é residencial, comercial ou industrial. A regra
+;para calcular a conta é:
+;– Residencial: R$5,00 de taxa mais R$2,00 por m³ gastos;
+;– Comercial: R$ 500,00 para os primeiros 80m³ gastos mais R$25,00 por m³ gastos;
+;– Industrial: R$ 800,00 para os primeiros 100m³ gastos mais R$40,00 por m³ gastos;
+;O programa deverá ler a conta do cliente, consumo de água por metros cúbicos e o tipo
+;de consumidor ( residencial, comercial e industrial ). Como resultado, imprima a conta
+;do cliente e o valor real a ser pago pelo mesmo.
+
 
 segment .data  
     entrada1 db "informe seu consumo em metro(s) cubico(s): ", 0

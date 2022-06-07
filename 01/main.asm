@@ -1,5 +1,4 @@
 %include "asm_io.inc"
-segment .data
 
 ;   nasm -f win32 main.asm
 ;   nasm -f win32 asm_io.asm
@@ -10,6 +9,7 @@ segment .data
 ; bem como o preço do metro de tela p. Imprima o custo para cercar este mesmo terreno
 ; com tela
 
+segment .data
 entrada1 db "Informe Comprimento: ", 0 ;
 entrada2 db "Informe Largura: ", 0 ;
 entrada3 db "Informe Preço do metro: ", 0 ;

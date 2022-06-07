@@ -3,7 +3,7 @@
 ;   masn -f win32 main.asm
 ;   nasm -f win32 asm_io.asm
 ;   gcc -c -o driver.obj driver.C
-;   gcc -o main driver.obj main.obj masm_io.obj
+;   gcc -o main driver.obj main.obj asm_io.obj
 
 ;4. Desenvolva um algoritmo que dado os lados de um triângulo A, B e C. Dizer se os
 ;lados formam um triângulo:

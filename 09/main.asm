@@ -3,7 +3,7 @@
 ;   masn -f win32 main.asm
 ;   nasm -f win32 asm_io.asm
 ;   gcc -c -o driver.obj driver.C
-;   gcc -o main driver.obj main.obj masm_io.obj
+;   gcc -o main driver.obj main.obj asm_io.obj
 
 ;9. Implemente um programa que calcule o ano de nascimento de uma pessoa 
 ;a partir de sua idade e do ano atual.

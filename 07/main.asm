@@ -3,7 +3,7 @@
 ;   masn -f win32 main.asm
 ;   nasm -f win32 asm_io.asm
 ;   gcc -c -o driver.obj driver.C
-;   gcc -o main driver.obj main.obj masm_io.obj
+;   gcc -o main driver.obj main.obj asm_io.obj
 
 ;7. Leia um valor inteiro em segundos, e imprima-o em horas, 
 ;minutos e segundos.
