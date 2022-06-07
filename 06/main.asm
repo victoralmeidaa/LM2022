@@ -31,12 +31,13 @@ _asm_main:
     mov [input0], eax
     call print_nl
 
+    
     mov eax, saida1                 ;Saida Linha 1
     call print_string
     mov eax, [input0]               ;Num para eax
-    mov ebx, 1000   
+    mov ebx, 1000
+    mov edx, 0
     idiv ebx
-    and ebx, eax
     call print_int                  
     call print_nl
 
@@ -44,9 +45,9 @@ _asm_main:
     mov eax, saida2                 ;Saida Linha 2
     call print_string
     mov eax, edx                    ;edx resto de Num / 1000
-    mov ebx, 100    
-    div ebx                         ;Resto / 100
-    ;xor ebx, ebx
+    mov ebx, 100
+    mov edx, 0    
+    idiv ebx                         ;Resto / 100S
     call print_int
     call print_nl
 
@@ -54,8 +55,8 @@ _asm_main:
     call print_string
     mov eax, edx                    ;
     mov ebx, 10
-    and ebx, eax
-    ;idiv ebx                         ;Resto / 10
+    mov edx, 0
+    idiv ebx                         ;Resto / 10
     call print_int
     call print_nl
 
@@ -63,12 +64,13 @@ _asm_main:
     call print_string
     mov eax, edx                    ;
     mov ebx, 1
-    ;idiv ebx                         ;Resto / 1
+    mov edx, 0
+    idiv ebx                         ;Resto / 1
     call print_int
     jmp Fim
     
 Fim:
     popa
-        mov eax, 0
-        leave
-        ret
+    mov eax, 0
+    leave
+    ret
