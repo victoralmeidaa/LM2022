@@ -26,6 +26,9 @@ segment .bss
     input4  resd 1                  ;hora final
     input5  resd 1                  ;minuto final
     input6  resd 1                  ;segundos final
+    h       resd 1
+    m       resd 1
+    s       resd 1
 
 segment .text
     global _asm_main
@@ -90,13 +93,16 @@ _asm_main:
     call print_int
     call print_nl
 
-
+    ;
     mov eax, saida3
     call print_string
+    ;(horas*3600) = eax
     mov eax, [input4]               ;eax = hora
     mov ebx, 3600                   ;ebx = 3600
     mul ebx                         ;eax = horas*3600
+    mov [h], eax
     ;-
+    ;(minutos*60)
     mov eax, [input4]               ;eax = hora
     mov ebx, 3600                   ;ebx = 3600
     mul ebx                         ;eax = horas*3600
@@ -105,11 +111,22 @@ _asm_main:
     mov edx, 0                      ;edx = 0
     idiv ebx                        ;eax = eax/ebx
     mov ebx, 60
-    mul ebx                         ;eax = muniitos*60
+    mul ebx                         ;eax = muinutos*60
+    mov [m], eax
     ;-
     ;[input3]
-    ; termino quando chegar em casa s2
+    mov eax, [input3]
+    mov ebx, [h]
+    sub eax, ebx
 
+    mov ecx, [m]
+    sub eax, ecx
+
+    mov [s], eax
+    mov eax, [input2]
+    add eax, [s]
+    call print_int
+    call print_nl
 
     jmp Fim
     
