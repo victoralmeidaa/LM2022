@@ -96,7 +96,19 @@ _asm_main:
     mov eax, [input4]               ;eax = hora
     mov ebx, 3600                   ;ebx = 3600
     mul ebx                         ;eax = horas*3600
-    mov ebx, [input5]               ;ebx = minutos
+    ;-
+    mov eax, [input4]               ;eax = hora
+    mov ebx, 3600                   ;ebx = 3600
+    mul ebx                         ;eax = horas*3600
+    sub eax, [input3]               ;eax = eax - duracao
+    mov ebx, 60                     ;ebx = 60
+    mov edx, 0                      ;edx = 0
+    idiv ebx                        ;eax = eax/ebx
+    mov ebx, 60
+    mul ebx                         ;eax = muniitos*60
+    ;-
+    ;[input3]
+
 
 
     jmp Fim
