@@ -19,11 +19,11 @@ segment .data
     saida3      db "e segundo: ", 0;
 
 segment .bss
-    input0  resd 1
-    input1  resd 1
-    input2  resd 1
-    input3  resd 1
-    input4  resd 1
+    input0  resd 1                  ;hora inicio
+    input1  resd 1                  ;Minuto inicio
+    input2  resd 1                  ;segundos inicio
+    input3  resd 1                  ;duracao inicio
+    input4  resd 1                  
 
 segment .text
     global _asm_main
@@ -32,43 +32,44 @@ _asm_main:
     enter 0,0 
     pusha
 
-    mov eax, entrada0               ;Informe
+    mov eax, entrada0               ;Informe hora
     call print_string
     
     call read_int                   ;Ler hora
     mov [input0], eax
     call print_nl
 
-    mov eax, entrada1               ;Informe
+    mov eax, entrada1               ;Informe minuto
     call print_string
     
-    call read_int                   ;Ler min
+    call read_int                   ;Ler minuto
     mov [input1], eax
     call print_nl
 
-    mov eax, entrada2               ;Informe
+    mov eax, entrada2               ;Informe segundos
     call print_string
     
-    call read_int                   ;Ler seg
+    call read_int                   ;Ler segundos
     mov [input2], eax
     call print_nl
 
-    mov eax, entrada3               ;Informe
+    mov eax, entrada3               ;Informe duracao
     call print_string
     
     call read_int                   ;Ler duracao
     mov [input3], eax
     call print_nl
 
-    mov eax, saida1
+    mov eax, saida1                 ;informe saida hora
     call print_string
-    mov eax, [input3]
-    mov ebx, 3600
-    mov edx, 0
-    idiv ebx
+    mov eax, [input3]               ;hora
+    mov ebx, 3600                   ;3600
+    mov edx, 0                      ;edx = 0
+    idiv ebx                        ;eax = hora/3600
+    
     call print_int
     call print_nl
-    mov [input4], eax
+    mov [input4], eax               ;
 
     mov eax, saida2
     call print_string
