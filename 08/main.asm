@@ -108,7 +108,7 @@ _asm_main:
     mul ebx                         ;eax = muniitos*60
     ;-
     ;[input3]
-
+    ; termino quando chegar em casa s2
 
 
     jmp Fim
