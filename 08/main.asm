@@ -74,47 +74,55 @@ _asm_main:
     mov [input4], eax               ;horas = eaxs
     mov eax, [input0]               ;
     add eax, [input4]               ;eax = hora inicio + horas duracao
-    call print_int
+    call print_int                  ;ok
     call print_nl
 
     mov eax, saida2                 ;informe saida minutos
     call print_string
-    mov eax, [input4]               ;eax = hora
+    mov eax, [input4]               ;eax = hora:2
     mov ebx, 3600                   ;ebx = 3600
     mul ebx                         ;eax = horas*3600
-    sub eax, [input3]               ;eax = eax - duracao
+
+    mov ebx, eax
+    mov eax, [input3]
+    sub eax, ebx               ;eax = duracao -- ebx
+
     mov ebx, 60                     ;ebx = 60
-    mov edx, 0                      ;edx = 0
+    mov edx, 0
     idiv ebx                        ;eax = eax/ebx
-                                
-    mov ebx, [input1]               ;ebx = minuto inicio
+                
+    mov ebx, [input1]               ;ebx = minuto inicio:30
     add eax, ebx                    ;eax = ebx + eax
-    mov [input5], eax               ;minuto final = eax
-    call print_int
+
+    mov [input5], eax               ;minuto final = eax:30
+    call print_int                  ;print: 30
     call print_nl
 
-    ;
     mov eax, saida3
     call print_string
     ;(horas*3600) = eax
     mov eax, [input4]               ;eax = hora
     mov ebx, 3600                   ;ebx = 3600
     mul ebx                         ;eax = horas*3600
-    mov [h], eax
-    ;-
-    ;(minutos*60)
+    mov [h], eax                    ;h=7200
+  
+
     mov eax, [input4]               ;eax = hora
     mov ebx, 3600                   ;ebx = 3600
     mul ebx                         ;eax = horas*3600
-    sub eax, [input3]               ;eax = eax - duracao
+
+    mov ebx, eax
+    mov eax, [input3]
+    sub eax, ebx               ;eax = duracao - ebx 
+
     mov ebx, 60                     ;ebx = 60
     mov edx, 0                      ;edx = 0
     idiv ebx                        ;eax = eax/ebx
     mov ebx, 60
     mul ebx                         ;eax = muinutos*60
     mov [m], eax
-    ;-
-    ;[input3]
+  
+
     mov eax, [input3]
     mov ebx, [h]
     sub eax, ebx
