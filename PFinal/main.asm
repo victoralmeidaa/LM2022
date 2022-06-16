@@ -1,6 +1,11 @@
 %include "asm_io.inc"
 extern _printf
 
+;
+;horn identifying machine
+;caution, sensitive sensors
+;
+
 segment .data
     entrada1    db "Informe X: ",0
     entrada2    db "Informe Y: ",0
