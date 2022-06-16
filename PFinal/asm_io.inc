@@ -1,5 +1,6 @@
 	extern  read_int, print_int, print_string
 	extern	read_char, print_char, print_nl
+	extern	read_float, print_float, print_real
 	extern  sub_dump_regs, sub_dump_mem, sub_dump_math, sub_dump_stack
 
 %macro 	dump_regs 1

@@ -38,6 +38,7 @@ segment .data
 %endif
 
 int_format	    db  "%i", 0
+float_format	db	"%d", NL, 0
 string_format       db  "%s", 0
 reg_format	    db  "Register Dump # %d", NL
 		    db  "EAX = %.8X EBX = %.8X ECX = %.8X EDX = %.8X", NL
@@ -72,7 +73,7 @@ segment text public align=1 class=code use32
 %else
 segment .text
 %endif
-	global	read_int, print_int, print_string, read_char
+	global	read_int, read_float, print_float, print_int, print_string, read_char
 	global  print_char, print_nl, sub_dump_regs, sub_dump_mem
         global  sub_dump_math, sub_dump_stack
         extern  _scanf, _printf, _getchar, _putchar, _fputs
@@ -94,6 +95,44 @@ read_int:
 	mov	eax, [ebp-4]
 	leave
 	ret
+
+read_float:
+	enter	4,0
+	pusha
+	pushf
+
+	lea	eax, [ebp-4]
+	push	eax
+	push	dword float_format
+	call 	_scanf
+	pop	ecx
+	pop ecx
+
+	popf
+	popa
+	mov eax, [ebp-4]
+	leave
+	ret
+
+print_float:
+	enter 0,0
+	pusha
+	pushf
+
+	;fld	qword [esp]
+	;fstp	qword [esp]
+	push	eax
+	push	dword float_format
+	call	_printf
+	pop		ecx
+	pop		ecx
+
+	popf
+	popa
+	leave
+	ret
+
+	
 
 print_int:
 	enter	0,0
@@ -448,6 +487,7 @@ zero_st:
 	jmp	short print_real
 valid_st:
 	fld	tword [esi]
+
 print_real:
 	fstp	qword [ebp-116]
 	push	dword [ebp-112]
@@ -457,6 +497,7 @@ print_real:
 	call	_printf
 	add	esp, 16
 	jmp	short cont_tag_loop
+
 invalid_st:
 	push	edi
 	push	dword invalid_st_format
