@@ -1,6 +1,0 @@
-Exception: STATUS_ACCESS_VIOLATION at eip=004011CB
-eax=00000000 ebx=612FD032 ecx=0061CC48 edx=0061CC48 esi=00000000 edi=0040202A
-ebp=401E0000 esp=0061CC3C program=C:\cygwin\home\Victor\LM2022\PFinal\main.exe, pid 1088, thread main
-cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
-Stack trace:
-Frame     Function  Args
