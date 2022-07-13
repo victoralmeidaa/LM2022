@@ -10,20 +10,20 @@
 ;   com tela
 
 segment .data
-entrada1 db "Informe Comprimento: ", 0 ;
-entrada2 db "Informe Largura: ", 0 ;
-entrada3 db "Informe Preço do metro: ", 0 ;
-saida1   db "Terreno tem ", 0 ;
-saida2   db " metros quadrados", 0 ;
-saida3   db "Custo para cercar o terreno em R$: ", 0;
+    entrada1 db "Informe Comprimento: ", 0 ;
+    entrada2 db "Informe Largura: ", 0 ;
+    entrada3 db "Informe Preço do metro: ", 0 ;
+    saida1   db "Terreno tem ", 0 ;
+    saida2   db " metros quadrados", 0 ;
+    saida3   db "Custo para cercar o terreno em R$: ", 0;
 
 
 segment .bss
-input1	resd 1
-input2	resd 2
-input3  resd 3
-input4  resd 4
-input5  resd 5
+    input1	resd 1
+    input2	resd 2
+    input3  resd 3
+    input4  resd 4
+    input5  resd 5
 
 segment .text
 	global _asm_main	
