@@ -5,8 +5,8 @@
 ;   gcc -c -o driver.obj driver.C
 ;   gcc -o main driver.obj main.obj asm_io.obj
 
-;9. Implemente um programa que calcule o ano de nascimento de uma pessoa 
-;a partir de sua idade e do ano atual.
+;   9. Implemente um programa que calcule o ano de nascimento de uma pessoa 
+;   a partir de sua idade e do ano atual.
 
 segment .data
     entrada0    db "Informe idade: ", 0;

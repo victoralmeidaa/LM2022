@@ -6,9 +6,9 @@
 ;   gcc -c -o driver.obj driver.C
 ;   gcc -o main driver.obj main.obj asm_io.obj
 
-;8. Faça um programa para ler o horário (hora, minuto e segundo) de inicio e a duração,
-;em segundos, de um experimento computacional. O programa deve resultar com o novo
-;horário (hora, minuto e segundo) do termino do mesmo.
+;   8. Faça um programa para ler o horário (hora, minuto e segundo) de inicio e a duração,
+;   em segundos, de um experimento computacional. O programa deve resultar com o novo
+;   horário (hora, minuto e segundo) do termino do mesmo.
 
 segment .data
     entrada0    db "Informe hora: ", 0;

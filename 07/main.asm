@@ -5,8 +5,8 @@
 ;   gcc -c -o driver.obj driver.C
 ;   gcc -o main driver.obj main.obj asm_io.obj
 
-;7. Leia um valor inteiro em segundos, e imprima-o em horas, 
-;minutos e segundos.
+;   7. Leia um valor inteiro em segundos, e imprima-o em horas, 
+;   minutos e segundos.
 
 segment .data
     entrada0    db "Informe valor em segundos: ", 0;

@@ -5,12 +5,12 @@
 ;   gcc -c -o driver.obj driver.c
 ;   gcc -o main driver.obj main.obj asm_io.obj
 
-;3. Um professor da UTFPR está necessitando calcular as notas dos alunos. Implemente
-;um algoritmo que leia o código de um aluno e suas três notas. Calcular a média
-;ponderada do aluno, considerando que o peso para a maior nota seja 4 e para as duas
-;restantes, 3. Mostre o código do aluno, suas três notas, a média calculada e uma
-;mensagem “Aprovado” se a média for maior ou igual a 5 e “reprovado” se a média for
-;menor que 5.
+;   3. Um professor da UTFPR está necessitando calcular as notas dos alunos. Implemente
+;   um algoritmo que leia o código de um aluno e suas três notas. Calcular a média
+;   ponderada do aluno, considerando que o peso para a maior nota seja 4 e para as duas
+;   restantes, 3. Mostre o código do aluno, suas três notas, a média calculada e uma
+;   mensagem “Aprovado” se a média for maior ou igual a 5 e “reprovado” se a média for
+;   menor que 5.
 
 segment .data                                   ;vareaveis iniciadas
     entrada0 db "Informe RA: "  , 0 ;

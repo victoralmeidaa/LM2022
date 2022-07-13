@@ -5,10 +5,10 @@
 ;   gcc -c -o driver.obj driver.c
 ;   gcc -o main driver.obj main.obj asm_io.obj
 
-; 2. Faça um programa que possibilite ao usuário realizar a conversão de unidade de
-; temperatura. As opções possíveis são: Celsius para Fahrenheit; Celsius para Kelvin;
-; Fahrenheit para Celsius; Fahrenheit para Kelvin; Kelvin para Celsius e Kelvin para
-; Fahrenheit
+;   2. Faça um programa que possibilite ao usuário realizar a conversão de unidade de
+;   temperatura. As opções possíveis são: Celsius para Fahrenheit; Celsius para Kelvin;
+;   Fahrenheit para Celsius; Fahrenheit para Kelvin; Kelvin para Celsius e Kelvin para
+;   Fahrenheit
 
 segment .data           ; local para colocar vareaveis inicializadas
     entrada1    db "informe temperatura: ", 0

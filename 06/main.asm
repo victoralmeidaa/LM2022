@@ -5,7 +5,7 @@
 ;   gcc -c -o driver.obj driver.C
 ;   gcc -o main driver.obj main.obj asm_io.obj
 
-;6. Leia um número inteiro de 4 dígitos (de 1000 a 9999) e imprimir 1 dígito por linha.
+;   6. Leia um número inteiro de 4 dígitos (de 1000 a 9999) e imprimir 1 dígito por linha.
 
 segment .data
     entrada0    db "Informe um Numero inteiro de 4 digitos: ", 0;

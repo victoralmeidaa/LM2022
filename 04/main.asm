@@ -5,11 +5,11 @@
 ;   gcc -c -o driver.obj driver.C
 ;   gcc -o main driver.obj main.obj asm_io.obj
 
-;4. Desenvolva um algoritmo que dado os lados de um triângulo A, B e C. Dizer se os
-;lados formam um triângulo:
-;• Retângulo = (A² = B² + C²);
-;• Obtusângulo = (A² > B² + C²);
-;• Acutângulo = (A² < B² + C²).
+;   4. Desenvolva um algoritmo que dado os lados de um triângulo A, B e C. Dizer se os
+;   lados formam um triângulo:
+;   • Retângulo = (A² = B² + C²);
+;   • Obtusângulo = (A² > B² + C²);
+;   • Acutângulo = (A² < B² + C²).
 
 segment .data
     entrada0    db "Informe lado A: " ,0
